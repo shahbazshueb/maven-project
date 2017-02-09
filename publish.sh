@@ -5,7 +5,7 @@ if [[ `git status --porcelain` ]]; then
   echo "clean working directory"
 
 fi
-versionText=$(cat build.sbt | grep "version := ")
+versionText=$(cat build.sbt | grep "version := " | tr -d :)
 
 sbt publish
 git checkout mvn-repo
