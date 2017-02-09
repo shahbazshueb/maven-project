@@ -18,13 +18,12 @@ if [ -z "$currentVersion" ]; then
   exit 0
 fi
 
-if [[ `git log --all --grep="$currentVersion" origin/mvn-repo` ]]; then
+if [[ `git fetch && git log --all --grep="$currentVersion" origin/mvn-repo` ]]; then
   echo "version already published on github mvn-repo branch"
   exit 0
 fi
 
 sbt publish
-git fetch
 git checkout mvn-repo
 git reset --hard
 git pull origin mvn-repo
