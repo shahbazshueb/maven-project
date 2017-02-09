@@ -1,6 +1,6 @@
 name := "mvn-project"
 
-version := "1.8"
+version := "1.9"
 organization := "org.tenpearls"
 
 lazy val `mvn-project` = (project in file(".")).enablePlugins(PlayJava)
