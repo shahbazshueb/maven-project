@@ -1,26 +1,26 @@
 
 #!/bin/bash
 
-currentVersion=$(cat build.sbt | grep "version := ")
+currentVersion=$(cat build.sbt | grep "version := " | grep "/(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)/")
 
 if ! [[ `git branch | grep "\* master$"` ]]; then
   echo "new artifact can only be published from master branch"
-  exit 0
+  exit 1
 fi
 
 if [[ `git status --porcelain` ]]; then
-  echo "clean working directory"
-  exit 0
+  echo "clean working directory required to publish artifact"
+  exit 1
 fi
 
 if [ -z "$currentVersion" ]; then
   echo "version not properly mentioned in build.sbt"
-  exit 0
+  exit 1
 fi
 
 if [[ `git fetch && git log --all --grep="$currentVersion" origin/mvn-repo` ]]; then
   echo "version already published on github mvn-repo branch"
-  exit 0
+  exit 1
 fi
 
 sbt publish
