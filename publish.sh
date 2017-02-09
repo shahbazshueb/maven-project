@@ -10,5 +10,5 @@ sbt publish
 git checkout mvn-repo
 git add mvn-repo
 git commit -m "commit message"
-git push origin
+git push origin mvn-repo
 git checkout master
