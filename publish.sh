@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-currentVersion=$(cat build.sbt | grep "version := " | grep "/(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)/")
+currentVersion=$(cat build.sbt | grep "version := " | egrep -o '([0-9]|\.)+')
 
 if ! [[ `git branch | grep "\* master$"` ]]; then
   echo "new artifact can only be published from master branch"
@@ -18,7 +18,7 @@ if [ -z "$currentVersion" ]; then
   exit 1
 fi
 
-if [[ `git fetch && git log --all --grep="$currentVersion" origin/mvn-repo` ]]; then
+if [[ `git fetch && git log --all --grep="version $currentVersion" origin/mvn-repo` ]]; then
   echo "version already published on github mvn-repo branch"
   exit 1
 fi
@@ -28,6 +28,7 @@ git checkout mvn-repo
 git reset --hard
 git pull origin mvn-repo
 git add mvn-repo
-git commit -m "$currentVersion"
+git commit -m "version $currentVersion"
 git push origin mvn-repo
 git checkout master
+
