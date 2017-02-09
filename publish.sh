@@ -2,7 +2,8 @@
 #!/bin/bash
 
 if [[ `git status --porcelain` ]]; then
-  echo("clean working directory")
+  echo "clean working directory"
+  exit 0
 fi
 
 sbt publish
