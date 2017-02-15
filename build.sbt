@@ -34,7 +34,7 @@ releaseNextVersion := { ver => if(isFinal == "") {
 releaseProcess := {
   if(isFinal == "") {
     Seq[ReleaseStep](
-      inquireVersion,
+      inquireVersions,
       setReleaseVersion,                      // : ReleaseStep
       commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
       tagRelease,                             // : ReleaseStep
@@ -45,7 +45,7 @@ releaseProcess := {
     )
   } else {
     Seq[ReleaseStep](
-      inquireVersion,
+      inquireVersions,
       setReleaseVersion,                      // : ReleaseStep
       commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
       publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
