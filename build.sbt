@@ -46,6 +46,7 @@ releaseProcess := {
   } else {
     Seq[ReleaseStep](
       inquireVersions,                        // : ReleaseStep
+      setReleaseVersion,                      // : ReleaseStep
       commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
       publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
       setNextVersion,                         // : ReleaseStep
