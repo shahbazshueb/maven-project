@@ -4,12 +4,12 @@
 currentVersion=$(cat version.sbt | grep "version := " | egrep -o '([0-9]|\.)+')
 
 
-if ["$1"=="-final"]; then
+if [ "$1" == "-final" ]; then
     sbt -Dfinal release
 else
     sbt release
     currentVersion=$currentVersion"-SNAPSHOT"
-fi
+fi &&
 
 git checkout mvn-repo &&
 git reset --hard &&

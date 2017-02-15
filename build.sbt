@@ -1,9 +1,17 @@
 import ReleaseTransformations._
 import sbtrelease.Version
 import sbtrelease.versionFormatError
+
+val isFinal = Option(System.getProperty("final")).getOrElse(false)
 name := "mvn-project"
 
-version <<= version in ThisBuild
+version := {
+  if(isFinal == ""){
+    (version in ThisBuild).value
+  } else {
+    (version in ThisBuild).value + "-SNAPSHOT"
+  }
+}
 organization := "org.tenpearls"
 
 lazy val `mvn-project` = (project in file(".")).enablePlugins(PlayJava)
@@ -18,7 +26,7 @@ publishTo := Some(Resolver.file("file",  new File("mvn-repo")))
 resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
-val isFinal = Option(System.getProperty("final")).getOrElse(false)
+
 
 releaseVersion := { ver => if(isFinal == "") {
   Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
