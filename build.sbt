@@ -18,15 +18,15 @@ publishTo := Some(Resolver.file("file",  new File("mvn-repo")))
 resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
-val isRelease = Option(System.getProperty("release")).getOrElse(false)
+val isFinal = Option(System.getProperty("final")).getOrElse(false)
 
-releaseVersion := { ver => if(isRelease == "") {
+releaseVersion := { ver => if(isFinal == "") {
   Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
 } else {
   Version(ver).map(_.asSnapshot.string).getOrElse(versionFormatError)
 } }
 
-releaseNextVersion := { ver => if(isRelease == "") {
+releaseNextVersion := { ver => if(isFinal == "") {
   Version(ver).map(_.bump.string).getOrElse(versionFormatError)
 } else {
   Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
@@ -41,7 +41,7 @@ releaseProcess := Seq[ReleaseStep](
   //runTest,                                // : ReleaseStep
   setReleaseVersion,                      // : ReleaseStep
   commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
-  tagRelease,                             // : ReleaseStep
+//  tagRelease,                             // : ReleaseStep
   publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
   setNextVersion,                         // : ReleaseStep
   commitNextVersion,                      // : ReleaseStep
