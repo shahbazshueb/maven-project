@@ -23,7 +23,7 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq( javaJdbc ,  cache , javaWs )
 libraryDependencies ++= Seq( "com.github.github"  % "site-maven-plugin" % "0.12")
 publishMavenStyle := true
-publishTo := Some(Resolver.file("file",  new File("mvn-repo")))
+publishTo := Some(Resolver.file("file",  new File("release")))
 
 resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
