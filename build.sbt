@@ -19,7 +19,7 @@ resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 releaseUseGlobalVersion := false
 releaseProcess := Seq[ReleaseStep](
   //checkSnapshotDependencies,              // : ReleaseStep
-  //inquireVersions,                        // : ReleaseStep
+  inquireVersions,                        // : ReleaseStep
   //runTest,                                // : ReleaseStep
   setReleaseVersion,                      // : ReleaseStep
   commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
