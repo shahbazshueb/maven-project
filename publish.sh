@@ -20,4 +20,5 @@ git commit -m "v$currentVersion" &&
 git push origin mvn-repo &&
 git checkout master &&
 sbt clean
+rm -rf release
 
