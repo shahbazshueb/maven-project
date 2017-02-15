@@ -16,6 +16,7 @@ publishTo := Some(Resolver.file("file",  new File("mvn-repo")))
 resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
+releaseUseGlobalVersion := false
 releaseProcess := Seq[ReleaseStep](
   //checkSnapshotDependencies,              // : ReleaseStep
   inquireVersions,                        // : ReleaseStep
