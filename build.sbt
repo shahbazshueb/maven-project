@@ -1,7 +1,7 @@
 import ReleaseTransformations._
 name := "mvn-project"
 
-version := "1.9"
+version <<= version in ThisBuild
 organization := "org.tenpearls"
 
 lazy val `mvn-project` = (project in file(".")).enablePlugins(PlayJava)
