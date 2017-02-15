@@ -12,6 +12,8 @@ version := {
     (version in ThisBuild).value + "-SNAPSHOT"
   }
 }
+
+
 organization := "org.tenpearls"
 
 lazy val `mvn-project` = (project in file(".")).enablePlugins(PlayJava)
