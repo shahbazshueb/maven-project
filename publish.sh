@@ -23,12 +23,13 @@ if [[ `git fetch && git log --all --grep="version $currentVersion" origin/mvn-re
   exit 1
 fi
 
-sbt publish
-git checkout mvn-repo
-git reset --hard
-git pull origin mvn-repo
-git add mvn-repo
-git commit -m "version $currentVersion"
-git push origin mvn-repo
-git checkout master
+sbt publish &&
+git checkout mvn-repo &&
+git reset --hard &&
+git pull origin mvn-repo &&
+git add mvn-repo &&
+git commit -m "version $currentVersion" &&
+git push origin mvn-repo &&
+git checkout master &&
+sbt clean
 
