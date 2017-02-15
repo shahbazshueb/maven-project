@@ -31,10 +31,6 @@ releaseNextVersion := { ver => if(isFinal == "") {
   Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
 } }
 
-
-
-
-releaseUseGlobalVersion := false
 releaseProcess := {
   if(isFinal == "") {
     Seq[ReleaseStep](
