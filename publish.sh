@@ -14,8 +14,9 @@ fi &&
 git checkout mvn-repo &&
 git reset --hard &&
 git pull origin mvn-repo &&
-git add mvn-repo &&
-git commit -m "version $currentVersion" &&
+rsync -av release/* mvn-repo/
+git add mvn-repo/ &&
+git commit -m "v$currentVersion" &&
 git push origin mvn-repo &&
 git checkout master &&
 sbt clean
