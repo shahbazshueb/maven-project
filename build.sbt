@@ -1,4 +1,6 @@
 import ReleaseTransformations._
+import sbtrelease.Version
+import sbtrelease.versionFormatError
 name := "mvn-project"
 
 version <<= version in ThisBuild
@@ -15,6 +17,21 @@ publishTo := Some(Resolver.file("file",  new File("mvn-repo")))
 
 resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
+
+val isRelease = Option(System.getProperty("release")).getOrElse(false)
+
+releaseVersion := { ver => if(isRelease == "") {
+  Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
+} else {
+  Version(ver).map(_.asSnapshot.string).getOrElse(versionFormatError)
+} }
+
+releaseNextVersion := { ver => if(isRelease == "") {
+  Version(ver).map(_.bump.string).getOrElse(versionFormatError)
+} else {
+  Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
+} }
+
 
 releaseUseGlobalVersion := false
 releaseVersionBump := sbtrelease.Version.Bump.Next
