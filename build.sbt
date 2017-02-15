@@ -17,6 +17,7 @@ resolvers += "maven-repo" at "https://repo.eclipse.org/content/groups/releases/"
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
 releaseUseGlobalVersion := false
+releaseVersionBump := sbtrelease.Version.Bump.Next
 releaseProcess := Seq[ReleaseStep](
   //checkSnapshotDependencies,              // : ReleaseStep
   inquireVersions,                        // : ReleaseStep
