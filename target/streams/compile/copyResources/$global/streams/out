@@ -1,0 +1,3 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/shahbaz/projects2/maven-project/conf/application.conf,/home/shahbaz/projects2/maven-project/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/shahbaz/projects2/maven-project/conf/routes,/home/shahbaz/projects2/maven-project/target/scala-2.11/classes/routes)[0m

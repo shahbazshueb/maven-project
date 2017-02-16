@@ -1,0 +1,4 @@
+[0m[[0minfo[0m] [0m:: delivering :: org.tenpearls#mvn-project_2.11;1.3.9-SNAPSHOT :: 1.3.9-SNAPSHOT :: integration :: Wed Feb 15 21:54:42 PKT 2017[0m
+[0m[[0mdebug[0m] [0m	options = status=integration pubdate=Wed Feb 15 21:54:42 PKT 2017 validate=true resolveDynamicRevisions=true merge=true resolveId=null pubBranch=null[0m
+[0m[[0minfo[0m] [0m	delivering ivy file to /home/shahbaz/projects2/maven-project/target/scala-2.11/ivy-1.3.9-SNAPSHOT.xml[0m
+[0m[[0mdebug[0m] [0m	deliver done (51ms)[0m

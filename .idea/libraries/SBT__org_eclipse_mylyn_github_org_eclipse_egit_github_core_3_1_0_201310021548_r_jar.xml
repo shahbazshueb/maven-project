@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: org.eclipse.mylyn.github:org.eclipse.egit.github.core:3.1.0.201310021548-r:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.eclipse.mylyn.github/org.eclipse.egit.github.core/eclipse-plugins/org.eclipse.egit.github.core-3.1.0.201310021548-r.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
